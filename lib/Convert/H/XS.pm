@@ -447,6 +447,7 @@ sub _split_func_args {
       last;
     }
   }
+  grep { ref $_ or $_ ne 'void' }
   map { !/\(/ ? $_ : _split_callback_args($_) }
   map { s/\0/, /g; $_ }
   split /\s*,\s*/s, $tmp;
