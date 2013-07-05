@@ -25,7 +25,6 @@ sub preprocess {
   # (special cases like #include <a/*b> can probably be ignored)
   $source =~ s{(?:
       /\*.*?\*/ # C like comments
-    | //[^\n]*  # C++ like comments
   )+}{}gxs;
 
   # EOL backslashes
