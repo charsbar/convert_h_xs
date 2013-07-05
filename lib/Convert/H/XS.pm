@@ -300,7 +300,7 @@ sub write_xs {
   if (-e $file and !$self->{force}) {
     croak "$file already exists; use 'force' option to override.";
   }
-  my ($parent) = $file =~ m|^(.+)[^\\/]+$|;
+  my ($parent) = rel2abs($file) =~ m|^(.+?)[^\\/]+$|;
 
   my $package = $self->{package} or croak "'package' is required";
 
